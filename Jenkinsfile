@@ -27,11 +27,12 @@ pipeline {
     stages {
         stage('Get the version') {
             steps {
-                script {
-                    def packageJson = readJSON file: 'package.json'
-                    packageVersion = packageJson.version
-                    echo "application version: $packageVersion"
-                }
+                echo 'I will always say Hello again!'
+                // script {
+                //     def packageJson = readJSON file: 'package.json'
+                //     packageVersion = packageJson.version
+                //     echo "application version: $packageVersion"
+                // }
             }
         }
         stage('Install dependencies') {
@@ -48,13 +49,13 @@ pipeline {
                 """
             }
         }
-        stage('Sonar Scan'){
-            steps{
-                sh """
-                    sonar-scanner
-                """
-            }
-        }
+        // stage('Sonar Scan'){
+        //     steps{
+        //         sh """
+        //             sonar-scanner
+        //         """
+        //     }
+        // }
         stage('Build') {
             steps {
                 sh """
