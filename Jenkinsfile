@@ -5,7 +5,7 @@ pipeline {
         }
     }
     environment { 
-        packageVersion = ''
+        packageVersion = '1.2'
         nexusURL = '172.31.40.24:8081'
     }
     options {
@@ -72,6 +72,7 @@ pipeline {
                     protocol: 'http',
                     nexusUrl: "${nexusURL}",
                     groupId: 'com.roboshop',
+                    version: "${packageVersion}",
                     repository: 'catalogue',
                     credentialsId: 'nexus-auth',
                     artifacts: [
